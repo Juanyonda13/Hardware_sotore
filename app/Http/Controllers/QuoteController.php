@@ -25,11 +25,12 @@ class QuoteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    //permite ver el formulario
     public function create()
     {
         $employees = Employee::All();
         $waytopays = Waytopay::All();
-        return view('Quote.create',compact('employees', 'waytopays'));
+        return view('Quote.create', compact('employees', 'waytopays'));
     }
 
     /**
@@ -46,8 +47,8 @@ class QuoteController extends Controller
         $quote->hora_fin = $request->hora_fin;
         $quote->tiempo_total = $request->tiempo_total;
         $quote->total_pago = $request->total_pago;
-        $quote->waytopay_id = $request->waytopay_id;
         $quote->employee_id = $request->employee_id;
+        $quote->waytopay_id = $request->waytopay_id;
         $quote->save();
         return redirect()->route('quote.create');
     }
@@ -55,10 +56,10 @@ class QuoteController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Quote  $quote
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Quote $quote)
+    public function show($id)
     {
         //
     }
@@ -66,10 +67,10 @@ class QuoteController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Quote  $quote
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Quote $quote)
+    public function edit($id)
     {
         //
     }
@@ -78,10 +79,10 @@ class QuoteController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Quote  $quote
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Quote $quote)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -89,10 +90,10 @@ class QuoteController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Quote  $quote
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Quote $quote)
+    public function destroy($id)
     {
         //
     }
